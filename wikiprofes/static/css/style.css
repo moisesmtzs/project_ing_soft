@@ -10,6 +10,7 @@ The smaller device rules always should write below the bigger device rules
 Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 @import url(../icons/font-awesome/css/font-awesome.min.css);
 @import url(../icons/simple-line-icons/css/simple-line-icons.css);
 @import url(../icons/weather-icons/css/weather-icons.min.css);
@@ -24,11 +25,52 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 @import url(../plugins/animate/animate.min.css);
 @import url(../plugins/metismenu/css/metisMenu.min.css);
 @import url(../plugins/bootstrap-select/dist/css/bootstrap-select.min.css);
+
 .gradient-1,
 .dropdown-mega-menu .ext-link.link-1 a,
 .morris-hover,
 .datamaps-hoverover {
   background-image: linear-gradient(230deg, #759bff, #843cf6);
+}
+.contenedor {
+  /* max-width: 120rem;
+  width: 90%; */
+  width: min( 90%, 120rem );
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+}
+h1, h2, h3, h4 {
+  font-family: var( --headingFont );
+  line-height: 1.2;
+}
+h1 {
+  font-size: 4.8rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 3.2rem;
+}
+h4 {
+  font-size: 2.8rem;
+}
+.barra {
+  padding-top: 4rem;
+}
+
+.logo {
+  color: var( --white );
+}
+
+.logo__nombre {
+  font-weight: 400;
+}
+
+.logo__bold {
+  font-weight: 700;
 }
 
 .gradient-2,
@@ -89,6 +131,12 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --headingFont: 'PT Sans', sans-serif;
+  --paragraphFont: 'Open Sans', sans-serif;
+
+  --primary: #784d3c;
+  --gray2: #e1e1e1; 
+  --black: #000;
   --blue: #324cdd;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -176,16 +224,6 @@ hr {
   overflow: visible;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
 p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -261,12 +299,12 @@ sup {
   top: -0.5em;
 }
 
-a {
+/* a {
   color: #7571f9;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
-}
+} */
 a:hover {
   color: #2e28f6;
   text-decoration: underline;
@@ -10226,6 +10264,7 @@ sub {
   display: none;
 }
 .nav-header .logo-compact {
+  font-size: 2rem;
   display: none;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1350px) {
@@ -19745,7 +19784,7 @@ html[dir='rtl']
 }
 
 [data-nav-headerbg='color_1'] .nav-header {
-  background-color: #7571f9;
+  background-color: #b465da;
 }
 
 [data-nav-headerbg='color_2'] .nav-header {
