@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
@@ -16,3 +17,8 @@ class Alumno(models.Model):
     correo = models.TextField(max_length=50)
     codigo = models.TextField(max_length=10)
 
+class Comentario(models.Model):
+    profesor = models.ForeignKey(Profesor, on_delete=CASCADE)
+    alumno = models.ForeignKey(Alumno, on_delete=CASCADE)
+    comentario = models.TextField()
+    fecha = models.DateTimeField(auto_now_add=True)
