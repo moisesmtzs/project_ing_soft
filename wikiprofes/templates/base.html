@@ -51,7 +51,7 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="">
+                <a href="{% url 'inicio'%}">
                    {% comment "" %}
                    <h1 class="logo__nombre">Wiki<span class="logo__bold">Profes</span> </h1>
                    {% endcomment %} 
@@ -108,31 +108,31 @@
         <div class="nk-sidebar">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li class="nav-label">Inicio</li>
+                    <li class="nav-label"></li>
                         {% block classI %}
                             <li>
-                                <a href="inicio" aria-expanded="false">
+                                <a href="{% url 'inicio'%}" aria-expanded="false">
                                     <i class="ti-home menu-icon"></i><span class="nav-text">Inicio</span>
                                 </a>
                             </li>
                         {% endblock classI %}
                         {% block classB %}
                             <li>
-                                <a  href="buscar" aria-expanded="false">
+                                <a  href="{% url 'buscar' %}" aria-expanded="false">
                                     <i class="mdi mdi-magnify menu-icon"></i><span class="nav-text">Buscar</span>
                                 </a>
                             </li>
                         {% endblock classB %}
                         {% block classR %}
                             <li>
-                                <a  href="registrarse" aria-expanded="false">
+                                <a  href="{% url 'registrarse' %}" aria-expanded="false">
                                     <i class="icon-note menu-icon"></i><span class="nav-text">Registrarse</span>
                                 </a>
                             </li>
                         {% endblock classR %}
                         {% block classIS %}
                             <li>
-                                <a  href="iniciarsesion" aria-expanded="false">
+                                <a  href="{% url 'iniciarSe' %}" aria-expanded="false">
                                     <i class="icon-user menu-icon"></i><span class="nav-text">Iniciar Sesion</span>
                                 </a>
                             </li>

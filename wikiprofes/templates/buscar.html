@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block classB %}
     <li>
-        <a class="active" href="buscar" aria-expanded="false">
+        <a class="active" href="{% url 'buscar' %}" aria-expanded="false">
             <i class="mdi mdi-magnify menu-icon"></i><span class="nav-text">Buscar</span>
         </a>
     </li>

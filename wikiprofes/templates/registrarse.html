@@ -43,7 +43,7 @@
                             <div class="card-body pt-5">
                                 <div class="text-center"> <h2>WikiProfes</h2> </div>
                                 <br>
-                                <a class="text-center" href=""> <h4>Registrarse</h4></a>
+                                <a class="text-center" href="{% url 'registrarse'%}"> <h4>Registrarse</h4></a>
                                 <form class="mt-5 mb-5 login-input">
                                     <div class="form-group">
                                         <input type="text" class="form-control"  placeholder="Nombre" required>
@@ -54,9 +54,10 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Código" required>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign in</button>
+                                    <button class="btn login-form__btn submit w-100">Registrarte</button>
                                 </form>
-                                    <p class="mt-5 login-form__footer">¿Tienes cuenta? <a href="" class="text-primary">Iniciar sesion </a> Ahora</p>
+                                <a href="{% url 'inicio' %}" class="btn login-form__btn submit">Regresar</a>
+                                    <p class="mt-5 login-form__footer">¿Tienes cuenta? <a href="{% url 'iniciarSe' %}" class="text-primary">Iniciar sesion </a> Ahora</p>
                                     </p>
                                 </div>
                             </div>

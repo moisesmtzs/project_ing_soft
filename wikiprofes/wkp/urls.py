@@ -23,9 +23,8 @@ from webapp.views import registrarse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', inicio),
-    path('', inicio),
-    path('buscar/', buscar),
-    path('iniciarsesion/', iniciarSe),
-    path('registrarse/', registrarse),
+    path('', inicio, name="inicio"),
+    path('buscar/', buscar, name="buscar"),
+    path('iniciarsesion/', iniciarSe, name="iniciarSe"),
+    path('registrarse/', registrarse, name="registrarse"),
 ]
