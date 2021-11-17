@@ -14,7 +14,7 @@ class Profesor(models.Model):
 class Alumno(models.Model):
     idAlumno = models.AutoField(primary_key=True)
     nombre = models.TextField(max_length=50)
-    correo = models.TextField(max_length=50)
+    correo = models.EmailField()
     codigo = models.TextField(max_length=10)
 
 class Comentario(models.Model):
