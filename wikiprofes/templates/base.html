@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>WikiProfes</title>
     <!-- Favicon icon -->
-    {% comment %} <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'images/wp.jpg' %} "> {% endcomment %}
+     <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'images/wp.jpg' %} "> 
     <!-- Custom Stylesheet -->
     {% comment %} <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="css/normalize.css" as="style">
@@ -51,14 +51,15 @@
         ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
-                <a class="logo" href="">
-                    <h1 class="logo__nombre">Wiki<span class="logo__bold">Profes</span> </h1>
-                    {% comment %} <b class="logo-abbr"><img src="{% static 'images/wp-logo.jpg' %} " alt=""> </b>  {% endcomment %}
-                    <span class="logo-compact">WP</span>
-                    {% comment %} <span class="logo-compact"><img src="{% static './images/wikip-logo-compact.jpg' %} " alt=""></span> {% endcomment %}
-                    {% comment %} <span class="brand-title">
-                        <img src=" {% static 'images/wikip-logo-text.jpg' %} " alt="">
-                    </span>  {% endcomment %}
+                <a href="">
+                   {% comment "" %}
+                   <h1 class="logo__nombre">Wiki<span class="logo__bold">Profes</span> </h1>
+                   {% endcomment %} 
+                    <b class="logo-abbr"> <h3 class="logo__nombre">WP<span class="logo__bold"></span> </h3></b>  
+                     <span class="logo-compact"><img src="{% static './images/wikip-logo-compact.jpg' %} " alt=""></span> 
+                    <span class="brand-title">
+                        <h1 class="logo__nombre">Wiki<span class="logo__bold">Profes</span> </h1>
+                    </span> 
                 </a>
             </div>
         </div>
@@ -131,7 +132,7 @@
                         {% endblock classR %}
                         {% block classIS %}
                             <li>
-                                <a  href="iniciar sesion" aria-expanded="false">
+                                <a  href="iniciarsesion" aria-expanded="false">
                                     <i class="icon-user menu-icon"></i><span class="nav-text">Iniciar Sesion</span>
                                 </a>
                             </li>
