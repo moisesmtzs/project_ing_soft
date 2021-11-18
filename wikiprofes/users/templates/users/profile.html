@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block classI %}
+    <li>
+        <a class="active" href="{% url 'inicio'%}" aria-expanded="false">
+            <i class="icon-menu menu-icon"></i><span class="nav-text">Inicio</span>
+        </a>
+    </li>
+{% endblock classI %}
+{% block content %}
+    <h1>{{ user.username }}</h1>
+{% endblock  %}
+   

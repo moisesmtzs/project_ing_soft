@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>WikiProfes</title>
     <!-- Favicon icon -->
-     <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'images/wp.jpg' %} "> 
+     <link rel="icon" type="image/png" sizes="18x18" href=" {% static 'images/wp.jpg' %} "> 
     <!-- Custom Stylesheet -->
     {% comment %} <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="css/normalize.css" as="style">
@@ -123,20 +123,39 @@
                                 </a>
                             </li>
                         {% endblock classB %}
-                        {% block classR %}
+                        {% if user.is_authenticated %}
+
+                            {% block classIS2 %}
                             <li>
-                                <a  href="{% url 'registrarse' %}" aria-expanded="false">
-                                    <i class="icon-note menu-icon"></i><span class="nav-text">Registrarse</span>
+                                <a  href="{% url 'profile' %}" aria-expanded="false">
+                                    <i class="icon-user menu-icon"></i><span class="nav-text">Perfil</span>
                                 </a>
                             </li>
-                        {% endblock classR %}
-                        {% block classIS %}
-                            <li>
-                                <a  href="{% url 'iniciarSe' %}" aria-expanded="false">
-                                    <i class="icon-user menu-icon"></i><span class="nav-text">Iniciar Sesion</span>
-                                </a>
-                            </li>
-                        {% endblock classIS %}
+                            {% endblock classIS2 %}
+                            {% block classIB %}
+                                <li>
+                                    <a  href="{% url 'logout' %}" aria-expanded="false">
+                                        <i class="icon-user menu-icon" style="color: red; background-color: blanchedalmond ;" ></i><span class="nav-text">Cerrar sesion</span>
+                                    </a>
+                                </li>
+                            {% endblock classIB %}
+                            
+                        {% else %}
+                            {% block classR %}
+                                <li>
+                                    <a  href="{% url 'register' %}" aria-expanded="false">
+                                        <i class="icon-note menu-icon"></i><span class="nav-text">Registrarse</span>
+                                    </a>
+                                </li>
+                            {% endblock classR %}
+                            {% block classIS %}
+                                <li>
+                                    <a  href="{% url 'login' %}" aria-expanded="false">
+                                        <i class="icon-user menu-icon"></i><span class="nav-text">Iniciar Sesion</span>
+                                    </a>
+                                </li>
+                            {% endblock classIS %}
+                        {% endif %}
                     </li>
                 </ul>
             </div>
@@ -148,7 +167,15 @@
         <!--**********************************
             Content body start
         ***********************************-->
+        
         <div class="content-body">
+        {%if messages %}
+            {%for message in messages%}
+                <div class="alert alert-{{message.tags}}">
+                        {{message}}
+                </div>
+            {%endfor%}
+        {%endif%}
 
             {% block content %}
             
