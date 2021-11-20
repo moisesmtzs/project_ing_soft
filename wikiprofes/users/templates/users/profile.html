@@ -7,6 +7,14 @@
     </li>
 {% endblock classI %}
 {% block content %}
-    <h1>{{ user.username }}</h1>
+    <div class="content-section">
+        <div class = "media">
+            <img class="rounded-circle account-img" style="max-height:250px; max-width:250px; overflow: hidden" src="{{ user.profile.image.url }}">
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div>
+    </div>
 {% endblock  %}
    
