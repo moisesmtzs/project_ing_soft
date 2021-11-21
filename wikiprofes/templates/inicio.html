@@ -7,6 +7,12 @@
     </li>
 {% endblock classI %}
 {% block content %}
+    {% if user.is_superuser %}
+    <h1>Inicio de sesion como administrador</h1>
+    {% else %}
+    <p>Hello, ordinary visitor.</p>
+    {% endif %}
+
     <h1>inicio</h1>
 {% endblock  %}
    

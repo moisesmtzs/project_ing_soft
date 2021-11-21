@@ -123,6 +123,8 @@
                                 </a>
                             </li>
                         {% endblock classB %}
+
+
                         {% if user.is_authenticated %}
 
                             {% block classIS2 %}
@@ -135,10 +137,23 @@
                             {% block classIB %}
                                 <li>
                                     <a  href="{% url 'logout' %}" aria-expanded="false">
-                                        <i class="icon-user menu-icon" style="color: red; background-color: blanchedalmond ;" ></i><span class="nav-text">Cerrar sesion</span>
+                                        <i class="icon-user menu-icon" style="color: red; background-color: blanchedalmond ;" ></i>
+                                        <span class="nav-text">Cerrar sesion</span>
                                     </a>
                                 </li>
                             {% endblock classIB %}
+
+                            {% if user.is_superuser %}
+                                {% block classIA %}
+                                <li>
+                                    <a  href="{% url 'logout' %}" aria-expanded="false">
+                                        <i class="icon-user menu-icon" style="color: blue; background-color: blanchedalmond ;" ></i>
+                                        <span class="nav-text">CRUD PROFESORES</span>
+                                    </a>
+                                </li>
+                                {% endblock classIA %}
+
+                            {% endif %}
                             
                         {% else %}
                             {% block classR %}
@@ -178,6 +193,7 @@
         {%endif%}
 
             {% block content %}
+            
             
             {% endblock %}
             <!-- row -->
