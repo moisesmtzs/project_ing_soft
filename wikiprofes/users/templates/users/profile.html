@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block classI %}
     <li>
         <a class="active" href="{% url 'inicio'%}" aria-expanded="false">
@@ -15,6 +16,23 @@
                 <p class="text-secondary">{{ user.email }}</p>
             </div>
         </div>
+
+        <form  class="mt-5 mb-5 login-input" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class = "border-bottom mb-4">Informacion del Perfil</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn login-form__btn submit w-100" type="submit">Actualizar Informacion</button>
+            </div>
+
+        </form>
+
     </div>
+
+    
+
 {% endblock  %}
    
