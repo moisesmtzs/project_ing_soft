@@ -1,21 +1,21 @@
+
 from django.db import models
 from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
 class Materia(models.Model):
-    nombre = models.TextField(max_length=30)
     clave = models.TextField(max_length=8)
     
     def __str__(self):
-        return '{}'.format(self.nombre)
+        return '{}'.format(self.clave)
 
 class Profesor(models.Model):
     idProfesor = models.AutoField(primary_key=True)
     nombre = models.TextField(max_length=50)
-    correo = models.TextField(max_length=50)
+    correo = models.EmailField()
     codigo = models.TextField(max_length=10)
-    calificacion = models.SmallIntegerField()
+    #calificacion = models.SmallIntegerField()
     materia = models.ManyToManyField(Materia)
 
     def __str__(self):
