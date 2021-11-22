@@ -10480,7 +10480,7 @@ sub {
   margin-top: 17px;
 }
 .header-left .input-group input {
-  border-radius: 5px !important;
+  border-radius: 15px !important;
 }
 .header-left .input-group .input-group-text {
   font-size: 1.375rem;
@@ -13966,9 +13966,11 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 .form-control:focus {
-  width: 150px;
+  width: 1%;
+  font-size: 1.06rem;
   box-shadow: none;
   border-color: #6E41E2;
+  border-width: 2px;
 }
 
 .error-bg {
