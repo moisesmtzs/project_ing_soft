@@ -56,21 +56,24 @@ h3 {
 }
 h4 {
   font-size: 2.8rem;
-}
+} 
 .barra {
   padding-top: 4rem;
 }
 
 .logo {
+  font-family: var( --headingFont );
   color: var( --white );
 }
 
 .logo__nombre {
-  font-weight: 400;
+  font-weight: 800;
 }
 
 .logo__bold {
-  font-weight: 700;
+  font-size: 2rem;
+  /* font-family: var( --headingFont ); */
+  /* font-weight: 200; */
 }
 
 .gradient-2,
@@ -10256,7 +10259,8 @@ sub {
   position: absolute;
   left: 0;
   top: 0;
-  background: #111b27;
+  background: #6E41E2;
+  /* background: #111b27; */
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   transition: all 0.2s ease;
 }
@@ -10271,7 +10275,7 @@ sub {
   .nav-header {
     width: 14.375rem;
   }
-}
+} 
 .nav-header .brand-logo {
   z-index: 999;
 }
@@ -13909,9 +13913,11 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 .login-form__btn {
-  background: #980ec0;
+  /* background: #980ec0; */
+  background: #6E41E2;
   color: #fff;
   padding: 13px 40px;
+  border-radius: 15px;
   font-size: 14px;
 }
 .login-form__btn i,
@@ -13921,7 +13927,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 .login-form__btn.submit {
   padding: 15px 40px;
-  background: #980ec0;
+  background: #6E41E2;
+  /* background: #980ec0; */
   font-weight: 700;
 }
 
