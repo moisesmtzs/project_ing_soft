@@ -72,8 +72,8 @@ h4 {
 
 .logo__bold {
   font-size: 2rem;
-  /* font-family: var( --headingFont ); */
-  /* font-weight: 200; */
+  font-family: var( --headingFont );
+  font-weight: 200;
 }
 
 .gradient-2,
@@ -13917,7 +13917,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   background: #6E41E2;
   color: #fff;
   padding: 13px 40px;
-  border-radius: 15px;
+  border-radius: 25px;
   font-size: 14px;
 }
 .login-form__btn i,
