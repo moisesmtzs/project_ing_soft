@@ -67,13 +67,12 @@ h4 {
 }
 
 .logo__nombre {
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .logo__bold {
   font-size: 2rem;
-  font-family: var( --headingFont );
-  font-weight: 200;
+  font-weight: 100;
 }
 
 .gradient-2,
