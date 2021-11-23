@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -45,3 +45,26 @@ def read_profesor(request):
         'profesor': profesor
     }
     return render(request, "profesor/read_profesor.html", context)
+
+def update_profesor(request, id):
+    
+    profesor = get_object_or_404(Profesor, idProfesor=id)
+
+    context = {
+        'form' : ProfesorForm(instance=profesor)
+    }
+    
+    if request.method == 'POST':
+        formulario = ProfesorForm(data=request.POST, instance=profesor)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, f'Datos modificados con exito')
+            return redirect('read_profesor')
+        context['form'] = formulario
+
+    return render(request, 'profesor/update_profesor.html',context)
+
+def delete_profesor(request, id):
+    profesor = get_object_or_404(Profesor, idProfesor=id)
+    profesor.soft_delete()
+    return redirect('read_profesor')

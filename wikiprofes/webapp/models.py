@@ -2,15 +2,34 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 
+from webapp.managers import SoftDeleteManager
+
 # Create your models here.
 
-class Materia(models.Model):
+class SoftDeleteModel(models.Model):
+    is_deleted = models.BooleanField(default=False)
+    objects = SoftDeleteManager
+    
+    def soft_delete(self):
+        self.is_deleted = True
+        self.save()
+
+    def restore(self):
+        self.is_deleted = False
+        self.save()
+
+    class Meta:
+        abstract = True
+
+
+
+class Materia(SoftDeleteModel):
     clave = models.TextField(max_length=8)
     
     def __str__(self):
         return '{}'.format(self.clave)
 
-class Profesor(models.Model):
+class Profesor(SoftDeleteModel):
     idProfesor = models.AutoField(primary_key=True)
     nombre = models.TextField(max_length=50)
     correo = models.EmailField()

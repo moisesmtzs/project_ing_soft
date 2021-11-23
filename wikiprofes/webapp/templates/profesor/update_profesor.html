@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block classI %}
+    <li>
+        <a class="active" href="{% url 'inicio'%}" aria-expanded="false">
+            <i class="icon-menu menu-icon"></i><span class="nav-text">Inicio</span>
+        </a>
+    </li>
+{% endblock classI %}
+
+
+{% block content %}
+<div class="login-form-bg h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100">
+            <div class="col-xl-6">
+                <div class="form-input-content">
+                    <div class="card login-form mb-0">
+                        <div class="card-body pt-5">
+                            <div class="text-center"> <h2>CRUD Profesor</h2> </div>
+                            <hr>
+                            <br>
+                            <h4 class="text-center">Editar Profesor</h4></a>
+                            <hr>
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                {{ form|crispy }}
+                                
+                                    <input type="reset" value="Cancelar" class="btn btn-secondary">
+                                    &nbsp;
+                                    <input type="submit" value="Modificar" class="btn btn-primary">
+                                </div>
+                            
+                            </form>
+                            <a href="{% url 'inicio' %}" class="btn login-form__btn submit">Regresar</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock  %}
