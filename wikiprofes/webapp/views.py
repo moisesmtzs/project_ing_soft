@@ -34,7 +34,7 @@ def create_profesor(request):
         if formulario.is_valid():
             formulario.save()
             messages.success(request, f'Profesor agregado con exito')
-            return redirect('inicio')  #Cambiar a vista del menu CRUD   
+            return redirect('read_profesor')  #Cambiar a vista del menu CRUD   
          
     return render(request, "profesor/create_profesor.html", context)
 
@@ -66,5 +66,6 @@ def update_profesor(request, id):
 
 def delete_profesor(request, id):
     profesor = get_object_or_404(Profesor, idProfesor=id)
-    profesor.soft_delete()
+    profesor.delete()
+    messages.success(request, f'Registro eliminado con exito')
     return redirect('read_profesor')

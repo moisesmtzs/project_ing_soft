@@ -31,9 +31,9 @@ class Materia(SoftDeleteModel):
 
 class Profesor(SoftDeleteModel):
     idProfesor = models.AutoField(primary_key=True)
-    nombre = models.TextField(max_length=50)
+    nombre = models.CharField(max_length=50)
     correo = models.EmailField()
-    codigo = models.TextField(max_length=10)
+    codigo = models.CharField(max_length=10)
     #calificacion = models.SmallIntegerField()
     materia = models.ManyToManyField(Materia)
 
