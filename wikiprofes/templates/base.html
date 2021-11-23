@@ -137,8 +137,8 @@
                             {% block classIB %}
                                 <li>
                                     <a  href="{% url 'logout' %}" aria-expanded="false">
-                                        <i class="icon-user menu-icon" style="color: red; background-color: blanchedalmond ;" ></i>
-                                        <span class="nav-text">Cerrar sesion</span>
+                                        <i class="fa fa-sign-out menu-icon" style="color: red;" ></i>
+                                        <span class="nav-text">Cerrar sesión</span>
                                     </a>
                                 </li>
                             {% endblock classIB %}
@@ -147,7 +147,7 @@
                                 {% block classIA %}
                                 <li>
                                     <a  href="{% url 'read_profesor' %}" aria-expanded="false">
-                                        <i class="icon-user menu-icon" style="color: blue; background-color: blanchedalmond ;" ></i>
+                                        <i class="fa fa-users menu-icon"></i>
                                         <span class="nav-text">Listar Profesores</span>
                                     </a>
                                 </li>
@@ -166,7 +166,7 @@
                             {% block classIS %}
                                 <li>
                                     <a  href="{% url 'login' %}" aria-expanded="false">
-                                        <i class="icon-user menu-icon"></i><span class="nav-text">Iniciar Sesion</span>
+                                        <i class="icon-user menu-icon"></i><span class="nav-text">Iniciar Sesión</span>
                                     </a>
                                 </li>
                             {% endblock classIS %}

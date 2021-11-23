@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% block classI %}
     <li>
-        <a class="active" href="{% url 'inicio'%}" aria-expanded="false">
-            <i class="icon-menu menu-icon"></i><span class="nav-text">Inicio</span>
+        <a href="{% url 'inicio'%}" aria-expanded="false">
+            <i class="ti-home menu-icon"></i><span class="nav-text">Inicio</span>
         </a>
     </li>
 {% endblock classI %}
 {% block content %}
-    <div class="content-section">
+    <div class="barra contenedor content-section">
         <div class = "media">
             <img class="rounded-circle account-img" style="max-height:250px; max-width:250px; overflow: hidden" src="{{ user.profile.image.url }}">
             <div class="media-body">
@@ -20,12 +20,12 @@
         <form  class="mt-5 mb-5 login-input" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class = "border-bottom mb-4">Informacion del Perfil</legend>
+                <legend class = "border-bottom mb-4">Información del Perfil</legend>
                 {{ u_form|crispy }}
                 {{ p_form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn login-form__btn submit w-100" type="submit">Actualizar Informacion</button>
+                <button class="btn login-form__btn submit w-100" type="submit">Actualizar Información</button>
             </div>
 
         </form>

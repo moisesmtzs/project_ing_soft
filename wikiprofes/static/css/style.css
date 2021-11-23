@@ -57,9 +57,12 @@ h3 {
 h4 {
   font-size: 2.8rem;
 } 
+
 .barra {
-  padding-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: auto;
 }
+
 
 .logo {
   font-family: var( --headingFont );
