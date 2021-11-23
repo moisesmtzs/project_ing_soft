@@ -33,7 +33,15 @@ def create_profesor(request):
 
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, f'Tu cuenta fue creada! Ahora puede iniciar sesión')
-            return redirect('')
+            messages.success(request, f'Profesor agregado con exito')
+            return redirect('inicio')  #Cambiar a vista del menu CRUD   
          
     return render(request, "profesor/create_profesor.html", context)
+
+def read_profesor(request):
+    profesor = Profesor.objects.all()
+
+    context = {
+        'profesor': profesor
+    }
+    return render(request, "profesor/read_profesor.html", context)
