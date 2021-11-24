@@ -69,3 +69,12 @@ def delete_profesor(request, id):
     profesor.delete()
     messages.success(request, f'Registro eliminado con exito')
     return redirect('read_profesor')
+
+def search_profesor(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        profesor = Profesor.objects.filter(nombre__contains=searched)
+
+        return render(request, 'profesor/search_profesor.html',{'searched':searched, 'profesor':profesor})
+    else:
+        return render(request, 'profesor/search_profesor.html',{})
