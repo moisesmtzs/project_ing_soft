@@ -23,6 +23,14 @@ def iniciarSe(request):
 def registrarse(request):
     return render(request,'registrarse.html')
 
+def profesor_profile(request, id):
+    profesor = get_object_or_404(Profesor, idProfesor=id)
+    context = {
+        'profesor': profesor
+    }
+    # return redirect('profesor/profesor_profile.html')
+    return render(request, 'profesor/profesor_profile.html', context)
+
 def create_profesor(request):
     context = {
         'form' : ProfesorForm()

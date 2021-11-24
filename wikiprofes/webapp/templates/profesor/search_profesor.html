@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block classI %}
     <li>
-        <a class="active" href="{% url 'inicio'%}" aria-expanded="false">
+        <a href="{% url 'inicio'%}" aria-expanded="false">
             <i class="ti-home menu-icon"></i><span class="nav-text">Inicio</span>
         </a>
     </li>
@@ -14,7 +14,7 @@
             </h1>
             <br>
             {% for p in profesor %}
-                <a href="#"> {{p}} </a> <!--AQUI SE TIENE QUE HACER REFERENCIA A LA URL QUE MUESTRE LOS PERFILES DE LOS PROFESORES-->
+                <a href= "{% url 'profesor_profile' p.idProfesor %}" > {{p}} </a>
             {% endfor %}
         {% else %}
             <h1>Nada en el formulario</h1>

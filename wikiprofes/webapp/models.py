@@ -21,8 +21,6 @@ class SoftDeleteModel(models.Model):
     class Meta:
         abstract = True
 
-
-
 class Materia(SoftDeleteModel):
     clave = models.TextField(max_length=8)
     

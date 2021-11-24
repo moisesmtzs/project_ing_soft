@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 from users import views as users_views
 
-from webapp.views import delete_profesor, inicio,buscar, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor
+from webapp.views import delete_profesor, inicio,buscar, profesor_profile, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor
 
 
 
@@ -42,6 +42,7 @@ urlpatterns = [
     path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name="password_reset_confirm"),
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name="password_reset_complete"),
 
+    path('search-profesor/profesor_profile/<id>/', profesor_profile, name='profesor_profile'),
     path('create-profesor/', create_profesor, name='create_profesor'),
     path('read-profesor/', read_profesor, name='read_profesor'),
     path('update-profesor/<id>/', update_profesor, name='update_profesor'),
