@@ -1,3 +1,4 @@
+from django.db.models import fields
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -8,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Profesor
+from .models import Comentario, Profesor, Comentario
 from .forms import ProfesorForm
 
 # Create your views here.
@@ -86,3 +87,8 @@ def search_profesor(request):
         return render(request, 'profesor/search_profesor.html',{'searched':searched, 'profesor':profesor})
     else:
         return render(request, 'profesor/search_profesor.html',{})
+
+def AddCommentView(request):
+    model = Comentario
+    template_name = 'add_commet.html'
+    fields = '__all__'

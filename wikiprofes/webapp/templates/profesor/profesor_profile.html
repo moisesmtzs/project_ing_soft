@@ -39,45 +39,34 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class = "border-bottom mb-4">Comentarios</legend>
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
+                
             </fieldset>
             <div class="contenedor media">
                 <img class="rounded-circle account-img" style="max-height:120px; max-width:120px;">
                 <div class="media-body">
-                    <h3 class="account-heading">{{ comentario.alumno.nombre }}</h3>
-                    {% comment %} <p class="text-secondary">{{ profesor.correo }}</p> {% endcomment %}
-                    {%for comentario in comentario.comentario.all %}
-                        <p>{{comentario}}</p>
-                    {%endfor%}
+                    
 
 
                     {% if not profesor.comentarios.all %}
-                    Sin comentarios aun... <a href="#">Agregar comentario</div>
+                    Sin comentarios aun... <a href="#">Deja tu comentario!</div>
                     
                     {% else %}
                         {% for comment in profesor.comentarios.all %}
-                            <strong>{{comentario.fecha}}</strong>
+                            <strong>{{comment.fecha}}</strong>
                             <br>
-                            {{coment.comentario}}
+                            {{comment.comentario}}
+                            <hr>
+                            <br>
+                            
                         {% endfor %}
-                        <br>
-                        <hr>
+                        
                     {% endif %}
                     <br>
                     <br>
                     {% if user.is_authenticated %}
-                        <form method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-|
-                            {{ form|crispy }}
-                            
-                                <input type="reset" value="Cancelar" class="btn btn-secondary">
-                                &nbsp;
-                                <input type="submit" value="Guardar comentario" class="btn btn-primary">
-                            </div>
-                            
-                            </form>
+                        
+                        <br>
+                        <br>
                     {% endif %}
                 </div>
             </div>

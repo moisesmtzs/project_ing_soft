@@ -22,7 +22,9 @@ from django.conf.urls.static import static
 
 from users import views as users_views
 
-from webapp.views import delete_profesor, inicio,buscar, profesor_profile, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor
+from webapp.views import delete_profesor, inicio,buscar, profesor_profile, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor, AddCommentView
+
+
 
 
 
@@ -49,6 +51,7 @@ urlpatterns = [
     path('delete-profesor/<id>/',delete_profesor,name='delete_profesor'),
 
     path('search-profesor/', search_profesor, name='search_profesor'),
+    #path('search-profesor/profesor_profile/<id>/comment', AddCommentView, name='profesor_comment'),
 
     #path(url(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
 ]

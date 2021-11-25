@@ -54,5 +54,5 @@ class Comentario(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '{}'.format(self.nombre)
+        return '%s - %s' % (self.profesor.nombre, self.fecha)
 
