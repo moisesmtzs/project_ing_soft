@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp',
     'django_seed',
+    #"pinax.comments",
 ]
 
 MIDDLEWARE = [

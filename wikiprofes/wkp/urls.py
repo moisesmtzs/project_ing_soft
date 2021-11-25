@@ -48,7 +48,9 @@ urlpatterns = [
     path('update-profesor/<id>/', update_profesor, name='update_profesor'),
     path('delete-profesor/<id>/',delete_profesor,name='delete_profesor'),
 
-    path('search-profesor/', search_profesor, name='search_profesor')
+    path('search-profesor/', search_profesor, name='search_profesor'),
+
+    #path(url(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
 ]
 
 if settings.DEBUG:
