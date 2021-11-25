@@ -7,18 +7,24 @@
     </li>
 {% endblock classI %}
 {% block content %}
-    <center>
-        {% if searched %}
-            <h1>
-                Hola perris aqui nomas probando la busqueda {{searched}}
-            </h1>
-            <br>
-            {% for p in profesor %}
-                <a href= "{% url 'profesor_profile' p.idProfesor %}" > {{p}} </a>
-            {% endfor %}
-        {% else %}
-            <h1>Nada en el formulario</h1>
-        {% endif %}
-    </center>
+    <div class="barra contenedor card">
+        <center>
+            {% if searched %}
+                <h1>
+                    Hola perris aqui nomas probando la busqueda {{searched}}
+                </h1>
+                <br>
+                {% for p in profesor %}
+                    <a style="font-size: 25px;" href= "{% url 'profesor_profile' p.idProfesor %}" > {{p}} </a>
+                    
+                {% endfor %}
+            {% else %}
+                <h1>Nada en el formulario</h1>
+            {% endif %}
+        </center>
+
+    </div>
+
+
 {% endblock  %}
    

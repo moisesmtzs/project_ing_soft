@@ -28,7 +28,9 @@
                             <a href="{% url 'delete_profesor' p.idProfesor %}" class="btn btn-danger btn-sm">Eliminar</a>
                         </td>
                         <td>{{p.idProfesor | title}}</td>
-                        <td>{{p.nombre | title }}</td>
+                        <td>
+                            <a href= "{% url 'profesor_profile' p.idProfesor %}"> {{p.nombre | title}}</a> 
+                        </td> 
                         <td>{{p.correo | title}}</td>
                         <td>{{p.codigo | title}}</td>
                     

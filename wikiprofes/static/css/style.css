@@ -38,6 +38,11 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   width: min( 90%, 120rem );
   margin: 0 auto;
 }
+.contenedor-down {
+  /* max-width: 120rem;
+  width: 90%; */
+  margin: 1.2rem;
+}
 a {
   text-decoration: none;
 }
