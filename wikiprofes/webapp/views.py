@@ -10,7 +10,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Comentario, Profesor, Comentario
-from .forms import ProfesorForm
+from .forms import CommentForm, ProfesorForm
 
 # Create your views here.
 def inicio(request):
@@ -94,7 +94,23 @@ def search_profesor(request):
     else:
         return render(request, 'profesor/search_profesor.html',{})
 
-def AddCommentView(request):
-    model = Comentario
-    template_name = 'add_commet.html'
-    fields = '__all__'
+def AddCommentView(request, id):
+    profesor = get_object_or_404(Profesor, idProfesor=id)
+
+    context = {
+        'profesor': profesor,
+        'form_comment' : CommentForm()
+    }
+
+    if request.method == 'POST':
+        formulario = CommentForm(data=request.POST)
+
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, f'Comentario agregado con éxito')
+            return redirect('profesor_profile')  #Cambiar a vista del menu CRUD   
+         
+    return render(request, "profesor/profesor_profile/add_comment.html", context)
+    # model = Comentario
+    # template_name = 'add_comment.html'
+    # fields = '__all__'

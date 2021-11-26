@@ -18,10 +18,10 @@
                 <div class="form-input-content">
                     <div class="card login-form mb-0">
                         <div class="card-body pt-5">
-                            <div class="text-center"> <h2>CRUD Profesor</h2> </div>
+                            <div class="text-center"> <h2>CRUD Comentario</h2> </div>
                             <hr>
                             <br>
-                            <h4 class="text-center">Agregar Profesor</h4></a>
+                            <h4 class="text-center">Agregar Comentario</h4></a>
                             <hr>
                             <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
@@ -34,7 +34,7 @@
                                 </div>
                             
                             </form>
-                            <a style="size: 20px;" href="{% url 'read_profesor' %}" class="btn login-form__btn submit">Regresar</a>
+                            <a style="size: 20px;" href="{% url 'profesor_profile' %}" class="btn login-form__btn submit">Regresar</a>
                                 
                             </div>
                         </div>

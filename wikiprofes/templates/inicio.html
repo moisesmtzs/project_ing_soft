@@ -7,7 +7,7 @@
     </li>
 {% endblock classI %}
 {% block content %}
-    {% if user.is_superuser %}
+    {% comment %} {% if user.is_superuser %} {% endcomment %}
 <div class="contenedor card">
     <div class="card-body">
         <h2>Profesores</h2>
@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{p.idProfesor | title}}</td>
                         <td>
-                            <a href= "{% url 'profesor_profile' p.idProfesor %}"> {{p.nombre | title}}</a> 
+                            <a style="color: #6E41E2; font-weight: bold;" href= "{% url 'profesor_profile' p.idProfesor %}"> {{p.nombre | title}}</a> 
                         </td> 
                         <td>{{p.correo | title}}</td>
                         <td>{{p.codigo | title}}</td>
@@ -43,7 +43,7 @@
         <hr>
        </div>         
 </div>
-    {% else %}
-    {% endif %}
+    {% comment %} {% else %}
+    {% endif %} {% endcomment %}
 {% endblock  %}
    

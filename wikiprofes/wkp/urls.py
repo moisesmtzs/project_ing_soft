@@ -24,10 +24,6 @@ from users import views as users_views
 
 from webapp.views import delete_profesor, inicio,buscar, profesor_profile, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor, AddCommentView
 
-
-
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name="inicio"),
@@ -52,6 +48,8 @@ urlpatterns = [
 
     path('search-profesor/', search_profesor, name='search_profesor'),
     #path('search-profesor/profesor_profile/<id>/comment', AddCommentView, name='profesor_comment'),
+
+    path('search-profesor/profesor_profile/<id>/add_comment/', AddCommentView, name='add_comment' )
 
     #path(url(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
 ]
