@@ -8,11 +8,42 @@
 {% endblock classI %}
 {% block content %}
     {% if user.is_superuser %}
-    <h1>Inicio de sesion como administrador</h1>
+<div class="contenedor card">
+    <div class="card-body">
+        <h2>Profesores</h2>
+        <hr>
+        <table class="table table-striped table-hover table-responsive-sm">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Codigo</th>
+                <th>Materias</th>  
+                
+            </tr>
+    
+            {% for p in profesor %}
+                
+                    <tr>
+                        <td>{{p.idProfesor | title}}</td>
+                        <td>
+                            <a href= "{% url 'profesor_profile' p.idProfesor %}"> {{p.nombre | title}}</a> 
+                        </td> 
+                        <td>{{p.correo | title}}</td>
+                        <td>{{p.codigo | title}}</td>
+                    
+                        {%for m in p.materia.all %}
+                            <td>{{m | title}}</td>
+                        {%endfor%}
+                        
+                </tr>
+                
+            {% endfor%}
+        </table>
+        <hr>
+       </div>         
+</div>
     {% else %}
-    <p>Hello, ordinary visitor.</p>
     {% endif %}
-
-    <h1>Inicio</h1>
 {% endblock  %}
    

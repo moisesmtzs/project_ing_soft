@@ -120,15 +120,13 @@
                                 </a>
                             </li>
                         {% endblock classI %}
-                        {% block classB %}
+                        <!--{% block classB %}
                             <li>
                                 <a  href="{% url 'buscar' %}" aria-expanded="false">
                                     <i class="mdi mdi-magnify menu-icon"></i><span class="nav-text">Buscar</span>
                                 </a>
                             </li>
-                        {% endblock classB %}
-
-
+                        {% endblock classB %}-->
                         {% if user.is_authenticated %}
 
                             {% block classIS2 %}
@@ -152,7 +150,7 @@
                                 <li>
                                     <a  href="{% url 'read_profesor' %}" aria-expanded="false">
                                         <i class="fa fa-users menu-icon"></i>
-                                        <span class="nav-text">Listar Profesores</span>
+                                        <span class="nav-text">Profesores</span>
                                     </a>
                                 </li>
                                 {% endblock classIA %}

@@ -23,7 +23,9 @@ class SoftDeleteModel(models.Model):
 
 class Materia(SoftDeleteModel):
     clave = models.TextField(max_length=8)
-    
+    nombre = models.TextField(blank=True,max_length=50)
+    horario = models.TextField(blank=True,max_length=30 )
+    salon = models.TextField(blank=True,max_length=20)
     def __str__(self):
         return '{}'.format(self.clave)
 

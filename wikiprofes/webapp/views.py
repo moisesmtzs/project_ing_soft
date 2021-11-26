@@ -14,7 +14,13 @@ from .forms import ProfesorForm
 
 # Create your views here.
 def inicio(request):
-    return render(request,'inicio.html')
+    profesor = Profesor.objects.all()
+
+    context = {
+        'profesor': profesor
+    }
+    return render(request, 'inicio.html', context)
+   
 def buscar(request):
     return render(request,'buscar.html')
 
