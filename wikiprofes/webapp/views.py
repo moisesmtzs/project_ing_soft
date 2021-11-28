@@ -94,12 +94,12 @@ def search_profesor(request):
     else:
         return render(request, 'profesor/search_profesor.html',{})
 
-def AddCommentView(request, id):
+def AddCommentView(request):
     profesor = get_object_or_404(Profesor, idProfesor=id)
 
     context = {
         'profesor': profesor,
-        'form_comment' : CommentForm()
+        'comment' : CommentForm()
     }
 
     if request.method == 'POST':
@@ -110,7 +110,7 @@ def AddCommentView(request, id):
             messages.success(request, f'Comentario agregado con éxito')
             return redirect('profesor_profile')  #Cambiar a vista del menu CRUD   
          
-    return render(request, "profesor/profesor_profile/add_comment.html", context)
+    return render(request, "profesor/add_comment.html", context)
     # model = Comentario
     # template_name = 'add_comment.html'
     # fields = '__all__'
