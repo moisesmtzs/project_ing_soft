@@ -84,7 +84,7 @@ DATABASES = {
         
         'NAME': 'wikiprofes',
         'USER': 'postgres',
-        'PASSWORD': 'password',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '5432',
     }

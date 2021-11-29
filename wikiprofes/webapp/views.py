@@ -94,23 +94,28 @@ def search_profesor(request):
     else:
         return render(request, 'profesor/search_profesor.html',{})
 
-def AddCommentView(request):
+def add_comment(request):
     profesor = get_object_or_404(Profesor, idProfesor=id)
+    
+    mensaje="Request %r"%request
+   
 
-    context = {
-        'profesor': profesor,
-        'comment' : CommentForm()
-    }
+    return HttpResponse(mensaje)
+    
+    #context = {
+     #   'profesor': profesor,
+      #  'comment' : CommentForm()
+    #}
 
-    if request.method == 'POST':
-        formulario = CommentForm(data=request.POST)
+    #if request.method == 'POST':
+     #   formulario = CommentForm(data=request.POST)
 
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, f'Comentario agregado con éxito')
-            return redirect('profesor_profile')  #Cambiar a vista del menu CRUD   
+      #  if formulario.is_valid():
+       #     formulario.save()
+        #    messages.success(request, f'Comentario agregado con éxito')
+         #   return redirect('profesor_profile')  #Cambiar a vista del menu CRUD   
          
-    return render(request, "profesor/add_comment.html", context)
+    
     # model = Comentario
     # template_name = 'add_comment.html'
     # fields = '__all__'
