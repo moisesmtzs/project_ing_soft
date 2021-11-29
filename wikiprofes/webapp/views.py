@@ -94,18 +94,13 @@ def search_profesor(request):
     else:
         return render(request, 'profesor/search_profesor.html',{})
 
-def add_comment(request):
+def add_comment(request, id):
     profesor = get_object_or_404(Profesor, idProfesor=id)
+    context = {
+        'profesor': profesor,
+    }
+    return render(request,'profesor/addComment.html', context)
     
-    mensaje="Request %r"%request
-   
-
-    return HttpResponse(mensaje)
-    
-    #context = {
-     #   'profesor': profesor,
-      #  'comment' : CommentForm()
-    #}
 
     #if request.method == 'POST':
      #   formulario = CommentForm(data=request.POST)

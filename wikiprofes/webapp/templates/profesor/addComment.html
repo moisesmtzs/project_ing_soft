@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="barra contenedor card">
+        <form  class="contenedor mt-5 mb-5 login-input" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class = "border-bottom mb-4">Comentario al Profesor {{ profesor.nombre }}</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="contenedor media">
+                <img class="rounded-circle account-img" style="max-height:120px; max-width:120px;">
+                <div class="media-body">
+                    <h3 class="account-heading">{{ profesor.nombre }}</h3>
+                    <input 
+                            style="margin: 10px; border-radius: 12px; border-color: #6E41E2;" 
+                            type="text" 
+                            name="comment"
+                            size="20"
+                            placeholder="Escribe tu comentario"
+                            ><button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit"  >agregar comentario</button>
+                </div>
+                
+            </div>
+
+        </form>
+
+    </div>
+
+{% endblock content %}

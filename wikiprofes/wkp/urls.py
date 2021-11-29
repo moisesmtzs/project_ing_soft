@@ -49,7 +49,7 @@ urlpatterns = [
     path('search-profesor/', search_profesor, name='search_profesor'),
     #path('search-profesor/profesor_profile/<id>/comment', AddCommentView, name='profesor_comment'),
 
-     path('add_comment/', add_comment)
+     path('add_comment/<id>', add_comment, name="add_comment")
 
     #path(url(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
 ]
