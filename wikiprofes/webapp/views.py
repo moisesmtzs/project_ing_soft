@@ -13,8 +13,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .models import Comentario, Profesor, Comentario
-from .forms import CommentForm, ProfesorForm
+from .models import Comentario, Profesor, Comentario,Calificacion
+from .forms import CommentForm, ProfesorForm, CalifForm
 
 # Create your views here.
 def inicio(request):
@@ -104,19 +104,33 @@ def add_comment(request, id):
         'profesor': profesor,
     }
     if request.method == 'POST':
-        comment = request.POST["comment"]
-        comentario=Comentario(comentario=comment,fecha=datetime.datetime.now(),profesor_id=id)
-        comentario.save()
-        messages.success(request, f'Comentario agregado con éxito')
-        return redirect('profesor_profile',id)
+        if request.POST["comment"] == "":
+            messages.warning(request, f'Agregar comentario')
+            return redirect('profesor_profile',id)
+        else:
+            comment = request.POST["comment"]
+            comentario=Comentario(comentario=comment,fecha=datetime.datetime.now(),profesor_id=id)
+            comentario.save()
+            messages.success(request, f'Comentario agregado con éxito')
+            return redirect('profesor_profile',id)
 
     return render(request,'profesor/addComment.html', context)
 
-    
+def add_calif(request, id):
+    profesor = get_object_or_404(Profesor, idProfesor=id)
+    context = {
+        'form': CalifForm(),
+        'profesor': profesor,
+    }
+    if request.method == 'POST':
+        pun = int(request.POST["puntualidad"])
+        dif = int(request.POST["dificultad"])
+        dom = int(request.POST["dominioDelTema"])
+        fac = int(request.POST["facilidad"])
+        cal = (pun + dif + fac +(10-dif))/4
+        calif = Calificacion(profesor_id=id,calificacion=cal,puntualidad=pun,dificultad=dif,dominioDelTema=dom,facilidad=fac)
+        calif.save()
+        messages.success(request, f'Calificacion agregada con éxito')
+        return redirect('profesor_profile',id)
 
-          #Cambiar a vista del menu CRUD   
-         
-    
-    # model = Comentario
-    # template_name = 'add_comment.html'
-    # fields = '__all__'
+    return render(request,'profesor/addCalif.html', context)

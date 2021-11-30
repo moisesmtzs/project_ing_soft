@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-
-    <div class="barra contenedor card">
+<div class="barra contenedor card">
         <form  class="contenedor mt-5 mb-5 login-input" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class = "border-bottom mb-4">Comentario al Profesor {{ profesor.nombre }}</legend>
+                <legend class = "border-bottom mb-4">Calificación al Profesor</legend>
                 {{ u_form | crispy }}
                 {{ p_form | crispy }}
             </fieldset>
@@ -14,21 +13,13 @@
                 <img class="rounded-circle account-img" style="max-height:120px; max-width:120px;">
                 <div class="media-body">
                     <h3 class="account-heading">{{ profesor.nombre }}</h3>
-                    <input 
-                        
-                            style="margin: 15px; border-radius: 12px; border: none; -webkit-appearance: none; background: #f2f2f2; padding: 12px; width:250px;" 
-                            type="text" 
-                            name="comment"
-                            size="25"
-                            placeholder="Escribe tu comentario"
-                            required
-                            >
-                            <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit"  >agregar comentario</button>
+                    {{ form | crispy }}
+                    <br>
+                    <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit"  >Agregar</button>
                 </div>
                 <a class="btn login-form__btn" href= "{% url "profesor_profile" profesor.idProfesor %}">
                         Regresar
                         </a>
-                
             </div>
 
         </form>

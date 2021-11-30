@@ -59,3 +59,14 @@ class Comentario(models.Model):
         
         return '%s - %s' % (self.profesor.nombre, self.fecha)
 
+class Calificacion(models.Model):
+    profesor = models.ForeignKey(Profesor, related_name= "calificaciones", on_delete= models.CASCADE)
+    calificacion = models.DecimalField(max_digits=4, decimal_places=2)
+    puntualidad = models.IntegerField()
+    dificultad = models.IntegerField()
+    dominioDelTema = models.IntegerField()
+    facilidad = models.IntegerField()
+
+    def __str__(self):
+        
+        return '%s - %s' % (self.profesor.nombre, self.calificacion)

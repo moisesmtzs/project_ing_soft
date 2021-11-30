@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 
 from users import views as users_views
 
-from webapp.views import delete_profesor, inicio,buscar, profesor_profile, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor, add_comment
+from webapp.views import delete_profesor, inicio,buscar, profesor_profile, create_profesor, read_profesor,update_profesor, delete_profesor,search_profesor, add_comment,add_calif
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,8 +50,8 @@ urlpatterns = [
     path('search-profesor/', search_profesor, name='search_profesor'),
     #path('search-profesor/profesor_profile/<id>/comment', AddCommentView, name='profesor_comment'),
 
-     path('add_comment/<id>', add_comment, name="add_comment")
-
+    path('add_comment/<id>', add_comment, name="add_comment"),
+    path('add_calif/<id>', add_calif, name="add_calif"),
     #path(url(r"^comments/", include("pinax.comments.urls", namespace="pinax_comments"))
 ]
 
