@@ -92,7 +92,7 @@ def delete_profesor(request, id):
 def search_profesor(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        profesor = Profesor.objects.filter(nombre__contains=searched)
+        profesor = Profesor.objects.filter(nombre__icontains=searched)
 
         return render(request, 'profesor/search_profesor.html',{'searched':searched, 'profesor':profesor})
     else:
