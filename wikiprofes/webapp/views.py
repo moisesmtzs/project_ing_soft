@@ -1,6 +1,10 @@
+from typing import Mapping
 from django.db.models import fields
+from django.forms.fields import DateTimeField
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
+
+import datetime
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -99,16 +103,18 @@ def add_comment(request, id):
     context = {
         'profesor': profesor,
     }
+    if request.method == 'POST':
+        comment = request.POST["comment"]
+        comentario=Comentario(comentario=comment,fecha=datetime.datetime.now(),profesor_id=id)
+        comentario.save()
+        messages.success(request, f'Comentario agregado con éxito')
+        return redirect('profesor_profile',id)
+
     return render(request,'profesor/addComment.html', context)
+
     
 
-    #if request.method == 'POST':
-     #   formulario = CommentForm(data=request.POST)
-
-      #  if formulario.is_valid():
-       #     formulario.save()
-        #    messages.success(request, f'Comentario agregado con éxito')
-         #   return redirect('profesor_profile')  #Cambiar a vista del menu CRUD   
+          #Cambiar a vista del menu CRUD   
          
     
     # model = Comentario
