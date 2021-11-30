@@ -69,4 +69,4 @@ class Calificacion(models.Model):
 
     def __str__(self):
         
-        return '%s - %s' % (self.profesor.nombre, self.calificacion)
+        return '%s' % ( self.calificacion)

@@ -15,11 +15,9 @@
                     <h3 class="account-heading">{{ profesor.nombre }}</h3>
                     {{ form | crispy }}
                     <br>
-                    <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit"  >Agregar</button>
+                    <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit">Agregar</button>
                 </div>
-                <a class="btn login-form__btn" href= "{% url "profesor_profile" profesor.idProfesor %}">
-                        Regresar
-                        </a>
+                <a class="btn login-form__btn" href= "{% url "profesor_profile" profesor.idProfesor %}">Regresar</a>
             </div>
 
         </form>

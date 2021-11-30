@@ -11,20 +11,27 @@
         <center>
             {% if searched %}
                 <h1>
-                    Hola perris aqui nomas probando la busqueda {{searched}}
+                    Resultados encontrados
                 </h1>
                 <br>
-                {% for p in profesor %}
-                    <a style="font-size: 25px;" href= "{% url 'profesor_profile' p.idProfesor %}" > {{p}} </a>
-                    
-                {% endfor %}
             {% else %}
-                <h1>Nada en el formulario</h1>
+                <h1>Busca un profesor</h1>
             {% endif %}
         </center>
 
     </div>
-
+    <div class="barra contenedor card">
+        {% if searched %}
+            {% for p in profesor %}
+                <br>   
+                <div class="contenedor">
+                    <a style="font-size: 22px;" href= "{% url 'profesor_profile' p.idProfesor %}" >Profesor: {{p}} </a>
+                </div> 
+                <br>   
+            
+            {% endfor %}
+        {% endif %}
+    </div>
 
 {% endblock  %}
    

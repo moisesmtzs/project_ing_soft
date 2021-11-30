@@ -127,10 +127,10 @@ def add_calif(request, id):
         dif = int(request.POST["dificultad"])
         dom = int(request.POST["dominioDelTema"])
         fac = int(request.POST["facilidad"])
-        cal = (pun + dif + fac +(10-dif))/4
+        cal = (pun + dom + fac +(10-dif))/4
         calif = Calificacion(profesor_id=id,calificacion=cal,puntualidad=pun,dificultad=dif,dominioDelTema=dom,facilidad=fac)
         calif.save()
-        messages.success(request, f'Calificacion agregada con éxito')
+        messages.success(request, f'Calificación agregada con éxito')
         return redirect('profesor_profile',id)
 
     return render(request,'profesor/addCalif.html', context)

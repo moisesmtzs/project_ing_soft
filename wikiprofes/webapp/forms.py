@@ -17,7 +17,7 @@ class CommentForm(forms.ModelForm):
 
 class CalifForm(forms.ModelForm):
     
-    puntualidad = forms.IntegerField(max_value=10, min_value=0, label="Puntialidad")
+    puntualidad = forms.IntegerField(max_value=10, min_value=0, label="Puntualidad")
     dificultad = forms.IntegerField(max_value=10, min_value=0, label="Dificultad")
     dominioDelTema = forms.IntegerField(max_value=10, min_value=0, label="Dominio del tema")
     facilidad = forms.IntegerField(max_value=10, min_value=0, label="Facilidad del curso")

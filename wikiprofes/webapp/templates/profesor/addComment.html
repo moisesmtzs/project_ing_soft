@@ -6,7 +6,7 @@
         <form  class="contenedor mt-5 mb-5 login-input" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class = "border-bottom mb-4">Comentario al Profesor {{ profesor.nombre }}</legend>
+                <legend class = "border-bottom mb-4">Comentario al Profesor</legend>
                 {{ u_form | crispy }}
                 {{ p_form | crispy }}
             </fieldset>
@@ -23,13 +23,11 @@
                             placeholder="Escribe tu comentario"
                             required
                             >
-                            <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit"  >agregar comentario</button>
+                            <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit"  >Agregar</button>
                 </div>
-                <a class="btn login-form__btn" href= "{% url "profesor_profile" profesor.idProfesor %}">
-                        Regresar
-                        </a>
                 
             </div>
+            <a class="btn login-form__btn" href= "{% url "profesor_profile" profesor.idProfesor %}">Regresar</a>
 
         </form>
 
