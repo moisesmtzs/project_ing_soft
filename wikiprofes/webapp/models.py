@@ -50,11 +50,12 @@ class Alumno(models.Model):
         return '{}'.format(self.nombre)
 
 class Comentario(models.Model):
-    profesor = models.ForeignKey(Profesor,  on_delete= models.CASCADE)
+    profesor = models.ForeignKey(Profesor, related_name= "comentarios", on_delete= models.CASCADE)
     #alumno = models.ForeignKey(Alumno, on_delete=CASCADE)
     comentario = models.TextField()
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        
         return '%s - %s' % (self.profesor.nombre, self.fecha)
 
