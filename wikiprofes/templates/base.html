@@ -8,27 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>WikiProfes</title>
-    <!-- Favicon icon -->
-     <link rel="icon" type="image/png" sizes="18x18" href=" {% static 'images/wp.jpg' %} "> 
-    <!-- Custom Stylesheet -->
-    {% comment %} <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="css/normalize.css" as="style">
-    <link rel="stylesheet" href="css/normalize.css" as="style">
-    
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"  crossorigin="crossorigin" as="font">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="preload" href="css/style.css" as="style"> {% endcomment %}
-    {% comment %} <link rel="stylesheet" href="css/style.css"> {% endcomment %}
+    <link rel="icon" type="image/png" sizes="18x18" href=" {% static 'images/wp.jpg' %} "> 
     <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link rel="preload" href="{%static '../img/udg.png'%}" as="image">
 
 </head>
 
 <body>
 
-    <!--*******************
-        Preloader start
-    ********************-->
     <div id="preloader">
         <div class="loader">
             <svg class="circular" viewBox="25 25 50 50">
@@ -36,44 +23,22 @@
             </svg>
         </div>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
 
     
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
     <div id="main-wrapper">
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="{% url 'inicio'%}">
-                   {% comment "" %}
-                   <h1 class="logo__nombre">Wiki<span class="logo__bold">Profes</span> </h1>
-                   {% endcomment %} 
                     <b class="logo logo-abbr"> <h3 class="logo">WP<span class="logo__bold"></span> </h3></b>  
-                     <span class="logo-compact"><img src="{% static './images/wikip-logo-compact.jpg' %} " alt=""></span> 
+                    <span class="logo-compact"><img src="{% static './images/wikip-logo-compact.jpg' %} " alt=""></span> 
                     <span class="brand-title">
                         <h1 class="logo logo__nombre">WIKI<span class="logo logo__bold">Profes</span> </h1>
                     </span> 
                 </a>
             </div>
         </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-        <!--
-            
-            
-            
-            -->
-        <!--**********************************
-            Header start
-        ***********************************-->
+
         <div class="header">    
             <div class="header-content clearfix">
                 
@@ -102,13 +67,6 @@
                 
             </div>
         </div>
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
         <div class="nk-sidebar">           
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
@@ -120,13 +78,7 @@
                                 </a>
                             </li>
                         {% endblock classI %}
-                        <!--{% block classB %}
-                            <li>
-                                <a  href="{% url 'buscar' %}" aria-expanded="false">
-                                    <i class="mdi mdi-magnify menu-icon"></i><span class="nav-text">Buscar</span>
-                                </a>
-                            </li>
-                        {% endblock classB %}-->
+
                         {% if user.is_authenticated %}
 
                             {% block classIS2 %}
@@ -144,7 +96,7 @@
                                     </a>
                                 </li>
                             {% endblock classIB %}
-
+                            
                             {% if user.is_superuser %}
                                 {% block classIA %}
                                 <li>
@@ -177,50 +129,41 @@
                 </ul>
             </div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
         
         <div class="content-body">
-        {%if messages %}
-            {%for message in messages%}
-                <div class="alert alert-{{message.tags}}">
-                        {{message}}
+            <div class="card contenedor barra">
+                <div class="contenedor barra">
+                    <h2 style="text-align: center; font-size: 40px; color: #000000; font-weight: bold;">WikiProfes</h2>
+                    <picture>
+                        <source loading="lazy" srcset="../img/udg.webp" type="image/webp">
+                    </picture>
+                    
+                    <img loading="lazy" src="../img/udg.png" alt="imagen udg">
+                    <p style="text-align: center; font-size: 15px; color: #000000;">Busca a los mejores profesores que imparten las materias en el Centro Universitario de Ciencias Exactas e Ingenierías</p>
                 </div>
-            {%endfor%}
-        {%endif%}
-
-            {% block content %}
-            
-            
-            {% endblock %}
-            <!-- row -->
-
-            <div class="container-fluid">
-
             </div>
-            <!-- #/ container -->
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-        
-        
-        <!--**********************************
-            Footer start
-        ***********************************-->
-        <!--**********************************
-            Footer end
-        ***********************************-->
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+            {%if messages %}
+                {%for message in messages%}
+                    <div class="alert alert-{{message.tags}}">
+                            {{message}}
+                    </div>
+                {%endfor%}
+            {%endif%}
 
+                {% block content %}
+                
+                {% endblock %}
+
+                <div class="container-fluid">
+
+                </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p>Ingeniería de Software. Wikiprofes 2.0&copy; por <a style="color: #6E41E2;" href="#">Los 5 Furiosos</a> 2021</p>
+            </div>
+        </div>
+    </div>
     <!--**********************************
         Scripts
     ***********************************-->
