@@ -10,7 +10,7 @@
     <title>WikiProfes</title>
     <link rel="icon" type="image/png" sizes="18x18" href=" {% static 'images/wp.jpg' %} "> 
     <link href=" {% static 'css/style.css' %} " rel="stylesheet">
-    <link rel="preload" href="{%static '../img/udg.png'%}" as="image">
+    <link rel="preload" href="{%static 'images/udg.png'%}" as="image">
 
 </head>
 
@@ -50,13 +50,13 @@
                 <div class="header-left">
                     <div class="input-group icons">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
                             <form class="d-flex" method = "POST" action="{%url 'search_profesor'%}">
                                 {% csrf_token %}
                                 </div>
                                 <input type="search" class="form-control me-2" placeholder="Profesor" aria-label="Search Dashboard" name="searched">
-                                <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit">Buscar</button>
-                                <div class="drop-down   d-md-none">
+                                <button class="btn btn-outline-secondary mdi mdi-magnify" style="margin-left: 0.5rem; border-radius: 30px;" id="basic-addon1"></button>
+                                {% comment %} <button class="btn btn-outline-secondary" style="margin-left: 0.5rem; border-radius: 10px;" type="submit">Buscar</button> {% endcomment %}
+                                <div class="drop-down d-md-none">
                                     <form action="#">
                                         <input type="text" class="form-control" placeholder="Search">
                                     </form>
@@ -131,17 +131,7 @@
         </div>
         
         <div class="content-body">
-            <div class="card contenedor barra">
-                <div class="contenedor barra">
-                    <h2 style="text-align: center; font-size: 40px; color: #000000; font-weight: bold;">WikiProfes</h2>
-                    <picture>
-                        <source loading="lazy" srcset="../img/udg.webp" type="image/webp">
-                    </picture>
-                    
-                    <img loading="lazy" src="../img/udg.png" alt="imagen udg">
-                    <p style="text-align: center; font-size: 15px; color: #000000;">Busca a los mejores profesores que imparten las materias en el Centro Universitario de Ciencias Exactas e Ingenierías</p>
-                </div>
-            </div>
+            
             {%if messages %}
                 {%for message in messages%}
                     <div class="alert alert-{{message.tags}}">

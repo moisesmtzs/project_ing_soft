@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block classI %}
     <li>
         <a class="active" href="{% url 'inicio'%}" aria-expanded="false">
@@ -6,42 +7,48 @@
         </a>
     </li>
 {% endblock classI %}
+
 {% block content %}
-    {% comment %} {% if user.is_superuser %} {% endcomment %}
-<div class="contenedor card">
-    <div class="card-body">
-        <h2>Profesores</h2>
-        <hr>
-        <table class="table table-striped table-hover table-responsive-sm">
-            <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Codigo</th>
-                <th>Materias</th>  
-                
-            </tr>
-    
-            {% for p in profesor %}
-                
-                    <tr>
-                        
-                        <td>
-                            <a style="color: #6E41E2; font-weight: bold;" href= "{% url 'profesor_profile' p.idProfesor %}"> {{p.nombre | title}}</a> 
-                        </td> 
-                        <td>{{p.correo | title}}</td>
-                        <td>{{p.codigo | title}}</td>
+    <div class="card contenedor barra">
+        <div class="contenedor barra">
+            <h2 style="background-image: url({% static './images/udg2.jpg' %}); border-radius: 10px; height: 16rem; text-align: center; font-size: 40px; color: #000000; font-weight: bold;">WikiProfes</h2>
+            <p style="text-align: center; font-size: 18px; color: #000000;">Busca a los mejores profesores que imparten las materias en el Centro Universitario de Ciencias Exactas e Ingenierías.</p>
+        </div>
+    </div>
+    <div class="contenedor card">
+        <div class="card-body">
+            <h2>Profesores</h2>
+            <hr>
+            <table class="table table-striped table-hover table-responsive-sm">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Codigo</th>
+                    <th>Materias</th>  
                     
-                        {%for m in p.materia.all %}
-                            <td>{{m | title}}</td>
-                        {%endfor%}
-                        
                 </tr>
-                
-            {% endfor%}
-        </table>
-        <hr>
-       </div>         
-</div>
+        
+                {% for p in profesor %}
+                    
+                        <tr>
+                            
+                            <td>
+                                <a style="color: #6E41E2; font-weight: bold;" href= "{% url 'profesor_profile' p.idProfesor %}"> {{p.nombre | title}}</a> 
+                            </td> 
+                            <td>{{p.correo | title}}</td>
+                            <td>{{p.codigo | title}}</td>
+                        
+                            {%for m in p.materia.all %}
+                                <td>{{m | title}}</td>
+                            {%endfor%}
+                            
+                    </tr>
+                    
+                {% endfor%}
+            </table>
+            <hr>
+        </div>         
+    </div>
     {% comment %} {% else %}
     {% endif %} {% endcomment %}
 {% endblock  %}
